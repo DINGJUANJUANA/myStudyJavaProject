@@ -23,6 +23,7 @@ public class BillController {
 
     @Autowired
     private BillService billService;
+    //v1
     @RequestMapping(value = "list")
     public String list(){
         return "bill/list";
