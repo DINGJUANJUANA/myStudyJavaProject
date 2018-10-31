@@ -21,6 +21,7 @@ import java.util.List;
 @RequestMapping(value = "bill")
 public class BillController {
 
+    //fix new
     @Autowired
     private BillService billService;
     @RequestMapping(value = "list")
