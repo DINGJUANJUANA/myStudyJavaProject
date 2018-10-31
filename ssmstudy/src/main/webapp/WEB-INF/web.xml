@@ -47,6 +47,13 @@
 
 
 
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+		<url-pattern>*.css</url-pattern>
+		<url-pattern>/statics/*"</url-pattern>
+		<url-pattern>/scripts/*</url-pattern>
+	</servlet-mapping>
 
 
 	<!-- POST乱码过滤器 -->

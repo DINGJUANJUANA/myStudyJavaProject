@@ -23,6 +23,14 @@
 	<!-- 处理器适配器会去调用conversion-service -->
 	<mvc:annotation-driven/>
 
+	<!-- 配置全局mapping的拦截器 -->
+	<mvc:interceptors>
+		<!-- 拦截所有请求URL-->
+		<bean class="com.ssmstudy.interceptor.LoginInterceptor" />
+	</mvc:interceptors>
+
+    <mvc:default-servlet-handler/>
+
 	<!-- 显式的配置视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/page/"></property>

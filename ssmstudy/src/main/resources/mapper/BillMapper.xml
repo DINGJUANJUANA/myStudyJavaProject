@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssmstudy.mapper.BillMapper" >
+  <resultMap id="BaseResultMap" type="com.ssmstudy.po.Bill" >
+    <result column="Id" property="id" jdbcType="INTEGER" />
+    <result column="Amount" property="amount" jdbcType="DECIMAL" />
+    <result column="SerialNumber" property="serialnumber" jdbcType="VARCHAR" />
+    <result column="GopayOrderId" property="gopayorderid" jdbcType="VARCHAR" />
+    <result column="AfterPayAvailable" property="afterpayavailable" jdbcType="DECIMAL" />
+    <result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="FinishTime" property="finishtime" jdbcType="TIMESTAMP" />
+    <result column="OrderTime" property="ordertime" jdbcType="TIMESTAMP" />
+    <result column="MerchantNumber" property="merchantnumber" jdbcType="VARCHAR" />
+    <result column="Description" property="description" jdbcType="VARCHAR" />
+    <result column="BillType" property="billtype" jdbcType="INTEGER" />
+    <result column="BillStatus" property="billstatus" jdbcType="INTEGER" />
+    <result column="B_EXPORT" property="bExport" jdbcType="INTEGER" />
+    <result column="InoutType" property="inouttype" jdbcType="INTEGER" />
+    <result column="PayType" property="paytype" jdbcType="INTEGER" />
+    <result column="PayStatus" property="paystatus" jdbcType="INTEGER" />
+    <result column="B2CType" property="b2ctype" jdbcType="INTEGER" />
+    <result column="TargetUserId" property="targetuserid" jdbcType="INTEGER" />
+    <result column="OperatorId" property="operatorid" jdbcType="INTEGER" />
+    <result column="UserId" property="userid" jdbcType="INTEGER" />
+    <result column="Fund_Id" property="fundId" jdbcType="INTEGER" />
+    <result column="SourceType" property="sourcetype" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    Id, Amount, SerialNumber, GopayOrderId, AfterPayAvailable, CreateTime, FinishTime, 
+    OrderTime, MerchantNumber, Description, BillType, BillStatus, B_EXPORT, InoutType, 
+    PayType, PayStatus, B2CType, TargetUserId, OperatorId, UserId, Fund_Id, SourceType
+  </sql>
+  <select id="selectList" resultMap="BaseResultMap">
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from bill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ssmstudy.po.BillExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from bill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.ssmstudy.po.Bill" >
+    insert into bill (Id, Amount, SerialNumber, 
+      GopayOrderId, AfterPayAvailable, CreateTime, 
+      FinishTime, OrderTime, MerchantNumber, 
+      Description, BillType, BillStatus, 
+      B_EXPORT, InoutType, PayType, 
+      PayStatus, B2CType, TargetUserId, 
+      OperatorId, UserId, Fund_Id, 
+      SourceType)
+    values (#{id,jdbcType=INTEGER}, #{amount,jdbcType=DECIMAL}, #{serialnumber,jdbcType=VARCHAR}, 
+      #{gopayorderid,jdbcType=VARCHAR}, #{afterpayavailable,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{finishtime,jdbcType=TIMESTAMP}, #{ordertime,jdbcType=TIMESTAMP}, #{merchantnumber,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{billtype,jdbcType=INTEGER}, #{billstatus,jdbcType=INTEGER}, 
+      #{bExport,jdbcType=INTEGER}, #{inouttype,jdbcType=INTEGER}, #{paytype,jdbcType=INTEGER}, 
+      #{paystatus,jdbcType=INTEGER}, #{b2ctype,jdbcType=INTEGER}, #{targetuserid,jdbcType=INTEGER}, 
+      #{operatorid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{fundId,jdbcType=INTEGER}, 
+      #{sourcetype,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ssmstudy.po.Bill" >
+    insert into bill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="amount != null" >
+        Amount,
+      </if>
+      <if test="serialnumber != null" >
+        SerialNumber,
+      </if>
+      <if test="gopayorderid != null" >
+        GopayOrderId,
+      </if>
+      <if test="afterpayavailable != null" >
+        AfterPayAvailable,
+      </if>
+      <if test="createtime != null" >
+        CreateTime,
+      </if>
+      <if test="finishtime != null" >
+        FinishTime,
+      </if>
+      <if test="ordertime != null" >
+        OrderTime,
+      </if>
+      <if test="merchantnumber != null" >
+        MerchantNumber,
+      </if>
+      <if test="description != null" >
+        Description,
+      </if>
+      <if test="billtype != null" >
+        BillType,
+      </if>
+      <if test="billstatus != null" >
+        BillStatus,
+      </if>
+      <if test="bExport != null" >
+        B_EXPORT,
+      </if>
+      <if test="inouttype != null" >
+        InoutType,
+      </if>
+      <if test="paytype != null" >
+        PayType,
+      </if>
+      <if test="paystatus != null" >
+        PayStatus,
+      </if>
+      <if test="b2ctype != null" >
+        B2CType,
+      </if>
+      <if test="targetuserid != null" >
+        TargetUserId,
+      </if>
+      <if test="operatorid != null" >
+        OperatorId,
+      </if>
+      <if test="userid != null" >
+        UserId,
+      </if>
+      <if test="fundId != null" >
+        Fund_Id,
+      </if>
+      <if test="sourcetype != null" >
+        SourceType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="serialnumber != null" >
+        #{serialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="gopayorderid != null" >
+        #{gopayorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="afterpayavailable != null" >
+        #{afterpayavailable,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishtime != null" >
+        #{finishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merchantnumber != null" >
+        #{merchantnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="billtype != null" >
+        #{billtype,jdbcType=INTEGER},
+      </if>
+      <if test="billstatus != null" >
+        #{billstatus,jdbcType=INTEGER},
+      </if>
+      <if test="bExport != null" >
+        #{bExport,jdbcType=INTEGER},
+      </if>
+      <if test="inouttype != null" >
+        #{inouttype,jdbcType=INTEGER},
+      </if>
+      <if test="paytype != null" >
+        #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="paystatus != null" >
+        #{paystatus,jdbcType=INTEGER},
+      </if>
+      <if test="b2ctype != null" >
+        #{b2ctype,jdbcType=INTEGER},
+      </if>
+      <if test="targetuserid != null" >
+        #{targetuserid,jdbcType=INTEGER},
+      </if>
+      <if test="operatorid != null" >
+        #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="fundId != null" >
+        #{fundId,jdbcType=INTEGER},
+      </if>
+      <if test="sourcetype != null" >
+        #{sourcetype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ssmstudy.po.BillExample" resultType="java.lang.Integer" >
+    select count(*) from bill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+</mapper>

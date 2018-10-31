@@ -21,7 +21,7 @@
 当前登录用户名：${loginuser}<br/>
 测试内容：${msg}<br/>
 <ul>
-    <li> <a href="${pageContext.request.contextPate}/bill/list">交易列表</a></li>
+    <li> <a href="${pageContext.request.contextPath}/bill/list">交易列表</a></li>
 </ul>
 <input type="button" value="退出登录" onclick="logout()">
 </body>

@@ -144,6 +144,11 @@
             <version>2.9.6</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.35</version>
+        </dependency>
 
         <!-- 表现层依赖 结束 -->
 

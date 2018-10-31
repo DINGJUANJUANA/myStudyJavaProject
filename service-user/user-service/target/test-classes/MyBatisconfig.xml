@@ -35,7 +35,7 @@
         </javaClientGenerator>
 
 
-        <table tableName="coupon_rule" enableCountByExample="true"
+        <table tableName="bill" enableCountByExample="true"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="true" selectByExampleQueryId="true"
                enableInsert="true" enableUpdateByPrimaryKey="true"
