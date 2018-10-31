@@ -1,0 +1,880 @@
+li {
+	list-style: none;
+}
+/** ~~~~~~~~~~  主页  ~~~~~~~~~~ **/
+.page-index {}
+.index-block {
+	margin: 20px 0 10px;
+}
+.index-box {
+	width: 100%;
+}
+/** ~~ 接单预约 ~~ **/
+.reciving-block {
+	float: left;
+	margin: 18px 50px 18px 0;
+	font-size: 14px;
+	color: #989898;
+}
+.reciving-block span {
+	float: left;
+	margin-top: 18px;
+}
+.reciving-block strong {
+	float: left;
+	margin-left: 15px;
+	font-size: 36px;
+	color: #4b4b4b;
+}
+/** ~~ 3分以下评价 ~~ **/
+.evaluate-block {
+	margin-bottom: 20px;
+	padding: 20px 0;
+	background-color: #fff;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+}
+/** 评价内容 **/
+.evaluate-box {
+	float: left;
+	padding: 0 30px;
+	width: 37%;
+	box-sizing: border-box;
+	border-right: solid #ddd 1px;
+}
+.evaluate-box p {
+	margin: 10px 0 10px;
+}
+.evaluate-box .name, .evaluate-box .orderID {
+	color: #4693ff;
+}
+.evaluate-box .time, .evaluate-box .phone {
+	/*margin-left: 20px;*/
+	color: #969696;
+}
+.evaluate-box .type {
+	margin-top: 20px;
+	font-size: 18px;
+	font-weight: bold;
+}
+.evaluate-box .content {
+	height: 60px;
+	overflow: hidden;
+}
+/** 评价分数 **/
+.evaluate-grade {
+	float: right;
+	width: 26%;
+	text-align: center;
+}
+.evaluate-grade .grade {
+	margin: 30px 0;
+	font-size: 46px;
+	font-weight: bold;
+}
+.evaluate-grade .btn {
+	margin: 5px 10px;
+	width: 90px;
+}
+
+/** ~~~~~~~~~~  招商管理——入驻申请  ~~~~~~~~~~ **/
+.page-enter {
+	margin-top: 50px;
+	text-align: center;
+}
+.enter-title {
+	margin-bottom: 30px;
+	font-size: 27px;
+	color: #505050;
+	font-weight: bold;
+}
+.enter-subhead {
+	margin: 30px 0;
+	font-size: 16px;
+	color: #969696;
+}
+.enter-choose {
+	display: inline-block;
+	position: relative;
+	margin: 10px 25px;
+	width: 27%;
+	min-width: 100px;
+	box-sizing: border-box;
+	color: #969696;
+	height: 150px;
+	text-align: center;
+	border: solid transparent 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.enter-choose i:hover {
+	background-size: cover;
+}
+.enter-choose i {
+	display: block;
+	position: absolute;
+	top: 40%;
+	left: 47%;
+	margin-top: -45px;
+	margin-left: -30px;
+	width: 90px;
+	height: 90px;
+	background-size: cover;
+}
+
+.enter-choose .title{
+	font-size: 15px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	letter-spacing: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.beCompany{
+	background: url(../image/role/corp.png) no-repeat;  }
+
+.beDesigner{
+	background: url(../image/role/indi.png) no-repeat;
+}
+.beExpir{
+	background: url(../image/role/exp.png) no-repeat;
+}
+
+.beCompany:hover{
+	background: url(../image/role/corp-hover.png) no-repeat;  }
+
+.beDesigner:hover{
+	background: url(../image/role/indi-hover.png) no-repeat;
+}
+.beExpir:hover{
+	background: url(../image/role/exp-hover.png) no-repeat;
+}
+
+/** ~~~~~~~~~~  招商管理——首次入驻申请  ~~~~~~~~~~ **/
+.page-enterFirst .title {
+	margin: 30px 0;
+}
+.enter-step {
+	float: left;
+	/*width: 15%;*/
+	text-align: center;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+}
+.enter-step .step {
+	margin: 50px auto 30px;
+	padding: 21px 0;
+	width: 100px;
+	height: 100px;
+	box-sizing: border-box;
+	font-size: 36px;
+	font-weight: bold;
+	border-style: solid;
+	border-width: 5px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+.enter-step .step-title {
+	margin: 30px 0;
+	font-size: 18px;
+	color: #505050;
+}
+.enter-step .step-status {
+	margin: 30px 0;
+	font-size: 18px;
+	color: #ff3d01;
+}
+.enter-step .btn-block {
+	margin: 40px 0;
+}
+.enter-step .btn {
+	margin: 0 15px;
+	width: 100px;
+}
+/*.enter-box{*/
+/*padding-left: 8%;*/
+/*}*/
+
+.enter-box .arrow {
+	float: left;
+	position: relative;
+	width: 100px;
+	height: 404px;}
+.enter-box .arrow:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -50px;
+	width: 100px;
+	height: 1px;
+	background: url(../image/icons-other.png) no-repeat;
+	background-size: 100% 100%;
+}
+.enter-check{
+	margin-left:-2%;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+}
+
+/** ~~~~~~~~~~  用户管理  ~~~~~~~~~~ **/
+.page-userManage {
+	margin-top: 50px;
+}
+.page-userManage .control-label {
+	margin: 0;
+	padding-right: 15px;
+	padding-left: 15px;
+	line-height: 45px;
+	text-align: right;
+}
+/** 图表显示 **/
+.page-userManage .chart-control {
+	width: 360px;
+	height: 45px;
+}
+.page-userManage .chart-control i {
+	display: block;
+	height: 100%;
+	overflow: hidden;
+	background: url(../image/icons-user.png) repeat-x;
+}
+/** 具体显示 **/
+.page-userManage .data-control {
+	line-height: 45px;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+/** 浏览 **/
+.user-browse .chart-control i {
+	background-position: 0 0;
+}
+.user-browse .data-control {
+	color: #2ca75a;
+}
+/** 收藏 **/
+.user-collect .chart-control i {
+	background-position: 0 -60px;
+}
+.user-collect .data-control {
+	color: #199bcb;
+}
+/** 点赞 **/
+.user-zan .chart-control i {
+	background-position: 0 -300px;
+}
+.user-zan .data-control {
+	color: #ea8010;
+}
+/** 评价 **/
+.user-evaluate .chart-control i {
+	background-position: 0 -120px;
+}
+.user-evaluate .data-control {
+	color: #ecc923;
+}
+/** 转发 **/
+.user-transmit .chart-control i {
+	background-position: 0 -360px;
+}
+.user-transmit .data-control {
+	color: #0fbea2;
+}
+/** 分享 **/
+.user-share .chart-control i {
+	background-position: 0 -420px;
+}
+.user-share .data-control {
+	color: #9d54b7;
+}
+/** IM沟通 **/
+.user-communicate .chart-control i {
+	background-position: 0 -180px;
+}
+.user-communicate .data-control {
+	color: #14bdbb;
+}
+/** 预约 **/
+.user-reserve .chart-control i {
+	background-position: 0 -240px;
+}
+.user-reserve .data-control {
+	color: #d13e9c;
+}
+
+/** ~~~~~~~~~~  设计是首页 -- 量房预约+本周优秀案例  ~~~~~~~~~~ **/
+.anli-list {
+	margin-top: 0;
+}
+.anli-list .order {
+	width: 550px;
+	margin-right: 20px;
+}
+.anli-list .anli {
+	width: 680px;
+}
+/*@media screen and (max-width:1348px) {
+	.anli-list .anli {
+		float: left!important;
+	}
+}*/
+.anli-list .evaluate-block {
+	height: 160px;
+}
+.anli-list .order .pull-left {
+	padding-left: 20px;
+	line-height: 2.2;
+}
+.anli-list .time {
+	float: right;
+	padding: 26px 40px;
+}
+.anli-list .time h4 {
+	font-weight: 600;
+}
+.anli-list .anli ul {
+	padding-left: 15px;
+	padding-right: 15px;
+	list-style: none;
+}
+.anli-list .anli li {
+	float: left;
+	width: 130px;
+	padding: 0 5px;
+}
+.anli-list .anli img {
+	width: 120px;
+	height: 120px;
+}
+.anli-list .anli .more {
+	font-size: 12px;
+	vertical-align: middle;
+}
+.mt-3 {
+	margin-top: -3px!important;
+}
+
+/** ~~~~~~~~~~  弹出的手机版  ~~~~~~~~~~ **/
+.popup-phone {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -375px;
+	width: 750px;
+	height: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: #f5f5f5;
+}
+.phone-header {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 128px;
+}
+.phone-container {
+	font-size: 26px;
+	color: #666;
+}
+.phone-block {
+	margin-bottom: 16px;
+	background-color: #fff;
+}
+
+/** ----  设计师详情  ---- **/
+/** 大图展示 **/
+.phone-designer .big-img {
+	position: relative;
+	width: 100%;
+	height: 562px;
+}
+.phone-designer .big-img:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,.5);
+}
+.phone-designer .big-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+/** 设计师简介 **/
+.phone-designer .designer-brief {
+	margin-top: -65px;
+	padding: 0 40px;
+}
+/** 设计师头像 **/
+.designer-portrait {
+	float: left;
+	position: relative;
+	width: 130px;
+	height: 130px;
+}
+.designer-portrait:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 4px;
+	width: 32px;
+	height: 32px;
+	overflow: hidden;
+	background: url(../image/phone/icon-designer-signal.png) no-repeat;
+}
+.designer-portrait img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border: solid #fff 3px;
+	border-radius: 50%;
+}
+/** 名字、标签等 **/
+.designer-info {
+	float: left;
+	position: relative;
+	margin-left: 24px;
+	height: 130px;
+}
+.designer-info .info-box {
+	margin-top: 20px;
+}
+.designer-info .info-box > span {
+	float: left;
+	display: block;
+}
+.designer-info .designer-name {
+	margin-right: 12px;
+	line-height: 32px;
+	font-size: 32px;
+	color: #fff;
+}
+.designer-info .designer-label {
+	margin-right: 16px;
+	padding: 8px 0;
+	width: 72px;
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	background-color: #439df7;
+	border-radius: 20px;
+}
+.designer-star {
+	margin-top: 7px;
+	width: 120px;
+	height: 18px;
+	background: url(../image/phone/star-orange.png) repeat-x;
+}
+.designer-grade {
+	margin-top: 3px;
+	margin-left: 10px;
+	font-size: 20px;
+	color: #f7ad43;
+}
+.designer-tag {
+	margin-right: 12px;
+	padding: 2px 20px;
+	font-size: 24px;
+	color: #666;
+	border: solid #e4e4e4 1px;
+	border-radius: 5px;
+}
+.designer-detail {
+	margin: 0;
+	padding: 30px 38px;
+	font-size: 24px;
+	color: #999;
+}
+.designer-data {
+	position: relative;
+	padding: 0 30px 30px;
+	height: 102px;
+	background: url(../image/phone/phone-middle.png) no-repeat top center;
+}
+.designer-data span {
+	position: absolute;
+	top: 20px;
+	left: 125px;
+	font-size: 24px;
+	font-weight: bold;
+	color: #444;
+}
+.designer-services {
+	position: relative;
+	padding: 15px 30px;
+	padding-left: 185px;
+	line-height: 30px;
+}
+.designer-title {
+	position: absolute;
+	top: 15px;
+	left: 30px;
+	margin: 5px 0;
+	font-size: 28px;
+	color: #444;
+}
+.service-box {
+	float: left;
+	margin: 5px 0;
+	margin-right: 18px;
+	padding-left: 46px;
+	font-size: 24px;
+	color: #666;
+	background: url(../image/phone/icon-checkbox.png) no-repeat;
+}
+
+.phone-pic {
+	margin: 0;
+	padding: 0;
+}
+.phone-pic img {
+	margin: 0;
+	vertical-align: top;
+}
+
+/** ----  案例详情  ---- **/
+.phone-case .big-img {
+	position: relative;
+	width: 100%;
+	height: 960px;
+}
+.phone-case .big-img:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,.5);
+}
+.phone-case .big-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+/** --  图片上的文字  -- **/
+.case-brief {
+	position: absolute;
+	right: 44px;
+	bottom: 55px;
+	left: 32px;
+}
+.case-name {
+	position: relative;
+	margin: 0;
+	padding: 20px 0;
+	font-size: 40px;
+	color: #fff;
+}
+.case-name:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 72px;
+	height: 2px;
+	background-color: #e4e4e4;
+}
+.case-label {
+	width: 560px;
+}
+.case-label span {
+	float: left;
+	display: block;
+	margin: 12px 0;
+	margin-right: 12px;
+	padding: 0 14px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 24px;
+	color: #fff;
+	border: solid #e4e4e4 1px;
+	border-radius: 5px;
+}
+.case-address {
+	margin-top: 12px;
+	margin-bottom: 5px;
+	font-size: 24px;
+	color: rgba(255,255,255,.6);
+}
+/** 右侧相册 **/
+.case-album {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 84px;
+	height: 84px;
+}
+.case-album img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border: solid #fff 1px;
+	border-radius: 50%;
+}
+.case-album span {
+	position: absolute;
+	top: -8px;
+	right: -12px;
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	line-height: 40px;
+	font-size: 22px;
+	color: #fff;
+	text-align: center;
+	background-color: #449df7;
+	border-radius: 50%;
+}
+/** --  模块  -- **/
+.case-title {
+	margin: 0;
+	padding: 22px 32px;
+	font-size: 28px;
+	color: #444;
+	border-bottom: solid #e4e4e4 1px;
+}
+.case-content {
+	padding: 32px;
+}
+.case-designer {}
+.case-designer .portrait {
+	float: left;
+	width: 88px;
+	height: 88px;
+}
+.case-designer .portrait img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+}
+.case-designer .designer-brief {
+	float: left;
+	margin-left: 32px;
+}
+.case-designer .designer-line {
+	margin-top: 5px;
+	margin-bottom: 15px;
+	color: #666;
+	font-size: 24px;
+}
+.case-designer .designer-name {
+	float: left;
+	font-size: 26px;
+	color: #444;
+}
+.case-designer .designer-label {
+	float: left;
+	margin-left: 20px;
+	padding: 0 12px;
+	font-size: 24px;
+	color: #666;
+	border: solid #999 1px;
+	border-radius: 5px;
+}
+.case-designer .designer-star {
+	float: left;
+	display: block;
+}
+.case-designer .designer-grade {
+	float: left;
+	display: block;
+	margin-right: 20px;
+}
+.case-cost {
+	padding: 0;
+}
+.case-cost > li {
+	position: relative;
+	padding: 11px 46px;
+	padding-left: 75px;
+	font-size: 28px;
+	color: #fff;
+	background-color: #333;
+}
+.case-cost > li:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 30px;
+	width: 0;
+	height: 0;
+	margin-top: -7px;
+	border-style: solid;
+	border-width: 14px;
+	border-color: #439df7 transparent transparent transparent;
+}
+.case-cost .cost {
+	color: #999;
+}
+.case-cost .cost-detail {
+	padding: 12px 72px;
+	background-color: #e4e4e4;
+}
+.case-cost .cost-detail > li {
+	padding: 12px 0;
+	font-size: 24px;
+	color: #666;
+}
+.case-cost .cost-detail > li span {
+	margin-right: 60px;
+}
+.label-stage{
+	float: left;
+	margin: 0 10px 10px 0;
+	padding: 8px 10px;
+}
+.label-button{
+	padding: 6px 12px;
+	border: none;
+	outline: none;
+}
+/** ~~~~  弹出层——上传头像  ~~~~ **/
+.popup-portrait{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -272.5px;
+	margin-left: -270px;
+	width: 540px;
+	height: auto;
+	box-sizing: border-box;
+	background-color: #fff;
+	border-top: solid #4492ff 4px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+}
+.portrait-title{
+	padding: 10px 15px;
+	border-bottom: solid #ddd 1px;
+}
+.portrait-box{
+	padding: 15px;
+}
+/** 左侧上传区域 **/
+.portrait-upload{
+	position: relative;
+	float: left;
+	width: 360px;
+	height: 360px;
+	text-align: center;
+	background-color: #f5f5f5;
+}
+.jcrop-preview{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+.portrait-upload .modal-body{
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 0;
+}
+.portrait-upload .btn-upload{
+	position: relative;
+	margin: 140px auto 0 auto;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	width: 100px;
+	overflow: hidden;
+	background-color: #fff;
+	border: solid #ddd 1px;
+	cursor: pointer;
+}
+.portrait-upload .btn-upload input[type="file"]{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+}
+.portrait-upload .tips-upload{
+	margin-top: 10px;
+}
+/** 右侧展示区域 **/
+.portrait-display{
+	float: right;
+	padding: 10px 0;
+	width: 130px;
+	height: 360px;
+	text-align: center;
+	background-color: #f5f5f5;
+}
+.portrait-display .display-box{
+	margin-bottom: 20px;
+}
+.portrait-display .text-display{
+	margin-bottom: 10px;
+}
+.portrait-display .portrait{
+	margin: 0 auto;
+	margin-bottom: 5px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.portrait-display .portrait.big{
+	width: 100px;
+	height: 100px;
+}
+.portrait-display .portrait.middle{
+	width: 50px;
+	height: 50px;
+}
+.portrait-display .portrait.small{
+	width: 30px;
+	height: 30px;
+}
+/** ~~~~  弹出层——上传头像  ~~~~ **/
+/* 上传头像*/
+.image-group{
+	position: absolute;
+	margin-top: -50px;
+	left: 600px;
+	width: 150px;
+	text-align: center;
+	line-height: 39px;
+}
+.btn-width{
+	width: 150px !important;
+}
+.code-stary{
+	color: #FFF;
+	padding: 6px 12px;
+	cursor:pointer;
+}
+.onChoose{
+	color: #000 !important;
+}

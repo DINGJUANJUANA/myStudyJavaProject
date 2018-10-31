@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ios版本控制</title>
+    #parse("sys/header.html")
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="root" id="root">
+        <div class="panel panel-primary">
+            <div class="grid-btn panel-body">
+                <div class="form-horizontal" style="width: auto " role="form">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary" @click="addVersion" >新增</button>
+                            <button type="button" class="btn btn-primary" @click="updateVersion" >编辑</button>
+                            <button type="button" class="btn btn-primary" @click="updateNowUse" >设为当前使用版本</button>
+                        </div>
+                        <div class="col-md-9"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <table id="jqGrid"></table>
+                <div id="jqGridPager"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="panel-body" style="width:100%"v-show="add">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="appVersion" class="col-sm-6 control-label">版本号</label>
+                    <div class="col-sm-6">
+                        <input type="text" style="width: 600px" class="form-control input-lg" v-model="app.appVersion" name="appVersion" id="appVersion" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="appVersion" class="col-sm-6 control-label">是否设为当前使用</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" id="nowUse" v-model="app.nowUse" name="nowUse">
+                            <option value="1">是</option>
+                            <option value="2">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="forcedUpdate" class="col-sm-6 control-label">是否强制更新</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" id="forcedUpdate" v-model="app.forcedUpdate" name="forcedUpdate">
+                            <option value="1">强制</option>
+                            <option value="2">不强制</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="forcedUpdate" class="col-sm-6 control-label">版本更新描述是否显示</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" id="setDescriptionFlag" v-model="app.setDescriptionFlag" name="setDescriptionFlag">
+                            <option value="1">显示</option>
+                            <option value="2">不显示</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="downLoadUrl" class="col-sm-6 control-label">app下载地址</label>
+                    <div class="col-sm-6">
+                        <input type="text" style="width: 600px" class="form-control input-lg" v-model="app.downLoadUrl" name="downLoadUrl" id="downLoadUrl" />
+                        <input type="hidden" class="form-control" v-model="app.client" value="3" name="client" id="client" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="description" class="col-sm-6 control-label">版本更新描述</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control input-lg"  style="height:150px;width:449px" placeholder="版本更新描述 最大50字" v-model="app.description" name="description" id="description" maxlength="50"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2"></div>
+            <div class="btn-group ">
+                <button type="button" class="btn btn-primary " @click="cancel()">关闭</button>
+                <button type="button" class="btn btn-primary " @click="submit()" id="submitBtn">确定</button>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+
+    <!-- update-->
+
+
+    <div class="panel-body" style="width:100%"v-show="updateHtml">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="appVersion" class="col-sm-6 control-label">版本号</label>
+                    <div class="col-sm-6">
+                        <input type="text" style="width: 600px" class="form-control input-lg" v-model="update.appVersion" name="appVersion" id="appVersionUpdate" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="appVersion" class="col-sm-6 control-label">是否设为当前使用</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" id="nowUseUpdate" v-model="update.nowUse" name="nowUse">
+                            <option value="1">是</option>
+                            <option value="2">否</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="forcedUpdate" class="col-sm-6 control-label">是否强制更新</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" id="forcedUpdateUpdate" v-model="update.forcedUpdate" name="forcedUpdate">
+                            <option value="1">强制</option>
+                            <option value="2">不强制</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="forcedUpdate" class="col-sm-6 control-label">版本更新描述是否显示</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" id="setDescriptionFlagUpdate" v-model="update.setDescriptionFlag" name="setDescriptionFlag">
+                            <option value="1">显示</option>
+                            <option value="2">不显示</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="downLoadUrl" class="col-sm-6 control-label">app下载地址</label>
+                    <div class="col-sm-6">
+                        <input type="text" style="width: 600px" class="form-control input-lg" v-model="update.downLoadUrl" name="downLoadUrl" id="downLoadUrlUpdate" />
+                        <input type="hidden" class="form-control" v-model="update.client" value="3" name="client" id="clientUpdate" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="description" class="col-sm-6 control-label">版本更新描述</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control input-lg"  style="height:150px;width:449px" placeholder="版本更新描述 最大50字" v-model="update.description" name="description" id="descriptionUpdate" maxlength="50"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-2"></div>
+            <div class="btn-group ">
+                <button type="button" class="btn btn-primary " @click="cancelUpdate()">关闭</button>
+                <button type="button" class="btn btn-primary " @click="UpdateSubmit()" id="UpdateBtn">确定</button>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div>
+
+<script src="${rc.contextPath}/js/app/iOS.js?_${date.systemTime}"></script>
+<script src="${rc.contextPath}/js/formatter.js?_${date.systemTime}"></script>
+<script language="javascript" type="text/javascript"
+        src="${rc.contextPath}/statics/plugins/My97DatePicker4.7.2/WdatePicker.js"></script>
+</div>
+</body>
+</html>

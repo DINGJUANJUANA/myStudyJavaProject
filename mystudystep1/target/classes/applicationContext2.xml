@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--开启组件扫描，在测试的时候配置类才能向容器中注册类中声明的bean-->
+    <context:component-scan base-package="com.mystudy.bean"/>
+    <!--XML中引入Java配置类：将配置类声明为bean-->
+    <bean class="com.mystudy.bean.CarConfig"></bean>
+    <bean id="man" class="com.mystudy.bean.Man">
+        <constructor-arg ref="annotest"></constructor-arg>
+    </bean>
+</beans>

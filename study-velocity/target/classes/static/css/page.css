@@ -1,0 +1,49 @@
+.PageNav {
+    float: left;
+    padding: 0 15px 0 0;
+    overflow: hidden;
+}
+.PageNav li {
+    list-style-type: none;
+    float: left;
+}
+.PageNav a {
+    display: block;
+    margin-left: 2px;
+    padding:8px;
+    color: #666;
+    text-decoration: none;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    line-height: 100%;
+}
+.PageNav a:hover {
+    background: #00acac;
+    color: #fff;
+    text-decoration: none;
+}
+.PageNav .PageSel a {
+    background: #00acac;
+    padding:9px;
+    border: none;
+    color: #fff;
+}
+.NextPage {
+    font-family: Arial;
+}
+.inputNum{
+    width: 40px;
+    height: 30px;
+}
+.pageSelect{
+    display: block;
+    width: 100%;
+    height: 31px;
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+}

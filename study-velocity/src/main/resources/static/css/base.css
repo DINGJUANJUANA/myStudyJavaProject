@@ -1,0 +1,206 @@
+
+.a-upload {
+    padding: 4px 8px;
+    line-height: 1.42857143;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+
+.block-invalid {
+    display: block;
+}
+
+.none-invalid {
+    display: none;
+}
+
+#image_preview {
+    border: 2px dashed #DDD;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 200px;
+    max-height: 500px;
+    overflow-y: auto;
+    display: none;
+    border: 1px solid #DDD;
+    margin-bottom: 10px;
+}
+
+/*--功能菜单导航--*/
+.right_menu_content {
+    width: 130px;
+    float: right;
+    position: fixed;
+    right: 10px;
+    top: 120px;
+    text-align: center;
+}
+
+.right_menu_content a {
+    width: 100px;
+
+}
+
+.right_menu_content button {
+    width: 100px;
+
+}
+#image_div1, #image_div2, #image_div3, #image_div4, #image_div5, #image_div6, #image_div7, #image_div8{
+    width: 500px;
+}
+#real_image_div1, #real_image_div2, #real_image_div3, #real_image_div4, #real_image_div5, #real_image_div6, #real_image_div7, #real_image_div8{
+    width: 500px;
+}
+.image_div_portrait img{
+    margin-right: 10px;
+}
+.image_div_portrait .image_div_portrait_upLoad {
+    cursor: pointer;
+    border: 2px solid #c9c9c9;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+.img_preview{
+    margin-bottom: 40px;
+}
+.image_div1 img{
+    border: 2px solid #c9c9c9;
+}
+
+.img_preview {
+    position: relative;
+    display: inline-block;
+    margin: 5px 16px 0 0;
+}
+
+.img_preview_option {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: -5px;
+    margin-top: -5px;
+}
+
+.img_preview_option_btn{
+    width: 17px;
+    height: 17px;
+    overflow: hidden;
+    background: red;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1;
+    z-index: 20;
+    margin-left: 327px;
+    margin-top: -1px;
+    color: #fff;
+    border:0;
+    padding: 0 1px;
+}
+
+.img_desc {
+    position: absolute;
+    bottom:1px;
+    right: 0;
+    background: #333;
+    opacity: 0.8;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+    padding: 0 8px 0 8px;
+}
+.img_fmt {
+	position: absolute;
+    bottom:1px;
+    width : 100%;
+    background: #333;
+    opacity: 0.8;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #fff;
+    padding: 0 8px 0 8px;
+    cursor: pointer;
+}
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 30px;
+    overflow: hidden;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: rgba(255,255,255,.95);
+}
+.popup {
+    background-color: rgba(0,0,0,.4);
+}
+/** ~~~~  弹出层——中间提示  ~~~~ **/
+.popup-confirm {
+    /*display: none;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    padding: 0 40px;
+    width: 600px;
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    background-color: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+.popup-text {
+    padding: 30px 15px;
+    font-size: 20px;
+    color: #505050;
+    text-align: center;
+}
+
+/** ~~~~~~~~  按钮  ~~~~~~~~ **/
+.btn-block {
+    margin: 20px 0 30px;
+    width: 100%;
+    text-align: center;
+}
+.btn-block .btn {
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 200px;
+}
+.btn{
+    outline: none;
+}

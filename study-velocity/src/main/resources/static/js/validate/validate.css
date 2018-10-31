@@ -1,0 +1,55 @@
+.valid_tips {
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1070;
+    display: block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    white-space: normal;
+    filter: alpha(opacity=0);
+}
+
+.valid_tips_arrow {
+    top: 0;
+    left: 50%;
+    border-width: 0 5px 5px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-left: 11px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 8px solid #fff;
+}
+
+.valid_tips_title {
+    max-width: 200px;
+    padding: 5px 18px;
+    color: #3f3f3f;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+}
+
+.valid_error {
+    border: 1px solid red !important;
+}
+.vaild_waring{
+    background-color: #ffcc66;
+    width: 10px;
+    height: 10px;
+}

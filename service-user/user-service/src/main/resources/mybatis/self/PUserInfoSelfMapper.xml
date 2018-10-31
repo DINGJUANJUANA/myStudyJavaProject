@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ptp.userservice.mapper.self.PUserInfoSelfMapper" >
+
+  <select id="selectByuserName" parameterType="java.lang.String" resultMap="com.ptp.userservice.mapper.PUserInfoMapper.BaseResultMap">
+    SELECT * FROM p_user_info WHERE user_name LIKE CONCAT('%',#{userName},'%')
+  </select>
+
+  <select id="selectPUserInfoVoById" parameterType="int" resultType="com.ptp.user.vo.PUserInfoVo">
+    select id, user_name AS userName FROM  p_user_info WHERE  id = #{id}
+   </select>
+
+  <sql id="Base_Column_List" >
+    id, user_name, user_age, user_pwd
+  </sql>
+  <select id="selectPUserInfoCount" parameterType="java.util.Map" resultType="java.math.BigInteger">
+    SELECT count(0)
+    FROM p_user_info A
+    WHERE 1=1
+    <if test="userName!=null">
+      and A.user_name=#{userName,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="selectPUserInfoList" parameterType="java.util.Map" resultMap="com.ptp.userservice.mapper.PUserInfoMapper.BaseResultMap">
+    SELECT *
+   <!--<include refid="Base_Column_List"></include>-->
+    FROM p_user_info A
+    WHERE 1=1
+    <if test="userName!=null">
+      and A.user_name=#{userName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY A.id
+    limit #{page_start},#{page_size}
+  </select>
+
+  <select id="selectListMapUserList" resultType="java.util.Map">
+    SELECT
+     id, user_name, user_age, user_pwd
+     FROM
+     p_user_info A
+  </select>
+</mapper>

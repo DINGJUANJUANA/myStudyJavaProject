@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd
+             http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-4.0.xsd  ">
+
+    <!-- datasource -->
+    <!--<bean id="dataSource" class="com.sys.midware.rdb.datasource.BDataSource"-->
+          <!--init-method="init" destroy-method="close" />-->
+    <!--&lt;!&ndash; 分布式事务代理数据源 &ndash;&gt;-->
+    <!--<bean name="lcnDataSourceProxy" class="com.codingapi.tx.datasource.relational.LCNTransactionDataSource">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <!--<property name="maxCount" value="20"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; 将数据源映射到sqlSessionFactory中 &ndash;&gt;-->
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />-->
+        <!--<property name="dataSource" ref="lcnDataSourceProxy" />-->
+        <!--<property name="typeAliasesPackage" value="com.zhongying.jf.model" />-->
+        <!--&lt;!&ndash; 显式指定Mapper文件位置 &ndash;&gt;-->
+        <!--<property name="mapperLocations">-->
+            <!--<list>-->
+                <!--<value>classpath:mybatis/mappers/**/*.xml</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--<bean id="transactionManager"-->
+          <!--class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="lcnDataSourceProxy" />-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 事务模板 &ndash;&gt;-->
+    <!--<bean id="transactionTemplate"  class="org.springframework.transaction.support.TransactionTemplate">-->
+        <!--<constructor-arg ref="transactionManager" />-->
+    <!--</bean>-->
+
+
+    <!--<tx:annotation-driven order="2" transaction-manager="transactionManager"/>-->
+
+    <!--&lt;!&ndash; scan for mappers and let them be autowired &ndash;&gt;-->
+    <!--<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.zhongying.jf.mapper" />-->
+        <!--<property name="properties">-->
+            <!--<value>-->
+                <!--mappers=tk.mybatis.mapper.common.Mapper-->
+                <!--IDENTITY=MYSQL-->
+                <!--notEmpty=true-->
+            <!--</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; AOP接口统一拦截 &ndash;&gt;-->
+    <!--<bean id="txTransactionInterceptor"-->
+          <!--class="com.sys.framework.base.intercepter.TxTransactionInterceptor"></bean>-->
+    <!--<aop:config>-->
+        <!--<aop:aspect id="aspect" ref="txTransactionInterceptor">-->
+            <!--<aop:pointcut id="pointTXInterceptor" expression="execution(* com.zhongying.jf.serviceImpl..*.*(..))" />-->
+
+            <!--<aop:around method="doAround"  pointcut-ref="pointTXInterceptor"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+</beans>

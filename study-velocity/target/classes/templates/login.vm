@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>龙果家装商户平台——登录</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css"
+          href="#springUrl('bootcss/css/bootstrap.css')"/>
+    <link rel="stylesheet" type="text/css" href="#springUrl('css/index.css')"/>
+    <link rel="stylesheet" type="text/css" href="#springUrl('css/login.css')"/>
+    <link rel="stylesheet" type="text/css" href="#springUrl('css/swiper.min.css')"/>
+    <script type="text/javascript" src="#springUrl('/js/jq.js')"></script>
+    <script type="text/javascript" src="#springUrl('/js/swiper.min.js')"></script>
+    <script type="text/javascript" src="#springUrl('/bootcss/js/bootstrap.min.js')"></script>
+    <script type="text/javascript" src="#springUrl('/js/global.js')"></script>
+</head>
+<body onkeydown="goLogin();">
+<div class="container-page" style="height:100%">
+    <!-- 网页头部导航栏 -->
+    <nav class="navbar navbar-login navbar-fixed-top">
+        <div class="nav-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="javascript:void(0)" tag="/welcome.html">
+                    <img src="image/logo-company.png"  style="width:105px;"/>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 网页内容 -->
+    <div class="page-content page-login">
+        <div class="page-content-middle">
+            <div class="login-body">
+                <!-- 平台LOGO -->
+                <div class="login-logo">
+                    <img src="#springUrl('image/logo.png')"/>
+                </div>
+                <!-- 平台名称 -->
+                <div class="login-title" style="color: #fff"> 龙果&nbsp;|&nbsp;红星美凯龙家装商户平台</div>
+
+                <div class="login-form">
+                    <div class="form-group login-form-group required"  style="width: 325px">
+                        <label class="control-label hide">手机号码</label>
+                        <!-- 检验手机号是否存在, class中加入mobile exist -->
+                        <!-- 检验手机号的唯一性, class中加入mobile unique -->
+                        <div class="input-unit">
+                            <div class="input-icon">
+                                <img src="image/login/user.png"/>
+                            </div>
+                            <input type="text" id="username" name="username" class="form-control clear-input mobile exist" maxlength="11"
+                                   placeholder="请输入手机号码">
+                        </div>
+                    </div>
+                    <div class="form-group login-form-group required"  style="width: 325px">
+                        <label class="control-label hide">密码</label>
+                        <div class="input-unit">
+                            <div class="input-icon">
+                                <img src="image/login/password.png"/>
+                            </div>
+                            <input type="password" id="password" name="password" class="form-control clear-input password" maxlength="20"
+                                   placeholder="请输入密码">
+                        </div>
+
+                    </div>
+                    <div class="form-group login-form-group required" id="errCode"  style="width: 325px">
+                        <label class="control-label hide">验证码</label>
+                        <div class="input-unit">
+                            <div class="input-icon">
+                                <img src="image/login/user.png"/>
+                            </div>
+                            <input type="text" id="code" name="code" class="form-control clear-input" maxlength="4"
+                                   placeholder="请输入验证码">
+                        </div>
+                        <img id="code-media" onclick="$(this).attr('src','/imageCode?'+Math.random())"
+                             id="imagecode" class="msg_code_img" src="/imageCode">
+                    </div>
+                    <!-- <span class="login-alert">错误信息：手机号码错误</span> -->
+                </div>
+
+                <div class="btn-block">
+                    <button type="button" id="js-login" class="btn clear-button btn-default" onclick="login();$('#code-media').attr('src','/imageCode?'+Math.random());">登录</button>
+                </div>
+
+                <div class="clearFix lastTips">
+                    <div class="pull-left">还没有账号？<a class="login-register" href="/register">注册</div>
+                ##                    <div class="pull-content"><a class="login-register" href="/registerDesigner">设计师注册</div>
+                    <div class="pull-right"><a class="login-forget" href="/forget">忘记密码</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 可轮播的背景 -->
+<div class="swiper-container swiper-container-horizontal swiper-container-fade">
+    <div class="swiper-wrapper">
+        <div>1111</div>
+        <div class="swiper-slide" style="background-image: url('image/login/bgImage1.jpg');background-size: cover;"></div>
+        <div class="swiper-slide" style="background-image: url('image/login/bgImage2.jpg');background-size: cover;"></div>
+    </div>
+
+</div>
+
+
+</body>
+<script type="text/javascript">
+
+
+    $(function () {
+
+        //判断验证码是否显示
+        var errCodeNum=${errCodeNum};
+        if(errCodeNum<3){
+            $("#errCode").hide();
+        }
+        // 加载表单验证方法
+        formCheck();
+        // 输入框获得焦点时, 删除可能存在的登录页专用提示
+        $(".required input").bind("focus", function () {
+            $(".login-alert").remove();
+        })
+
+        // 点击“登录”, 检验表单
+        $("#js-login").bind("click", function () {
+            // ifNull: 判断是否有未填的必填项
+            var ifNull = false;
+            // 首先确保数据都输入了
+            $(".required input:visible").each(function () {
+                if (!formCheckNull($(this))) {
+                    ifNull = true;
+                }
+            });
+            console.log("ifNull: " + ifNull + ", ifMobileSuccess: " + ifMobileSuccess);
+            // 检验必填项是否都已填写(如果表单中有手机号码一项, 需加入"!ifMobileSuccess"的判断)
+            if (ifNull || !ifMobileSuccess) {
+                return;
+            }
+
+            // 这里放验证码检验的代码
+
+            // 提交数据库
+            $.ajax({
+
+            });
+
+            // ............................................................
+            // 如果提交数据库后报错, 类似输错密码什么的
+            /* $(".login-form").append('<span class="login-alert">用户名与密码不匹配</span>');
+             console.log("success");*/
+        });
+    });
+    function goLogin() {
+        if (event.keyCode==13) {
+            login();
+        }
+    }
+    function login() {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var code = $("#code").val();
+        $.ajax({
+            beforeSend : function() {//处理以前需要做的功能
+                $(".login-form").find('.login-alert').length ? $(".login-form").find('.login-alert').html("正在登录，请耐心等待...").addClass('text-center') : $(".login-form").append('<div class="login-alert">' + "正在登录，请耐心等待..." + '</div>');
+                $("#js-login").attr("disabled", true);
+            },
+            type:'post',
+            url: '/sys/login',
+            data:{
+                username : username,
+                password : password,
+                code : code
+            },
+            success:function(data){
+                $("#js-login").removeAttr("disabled")
+                var loginInfo = JSON.parse(data);
+                console.log("login:"+data);
+                console.log("ff"+loginInfo.msgCode);
+                //服务器返回false，就将validatePassword2的值改为pwd2Error，这是异步，需要考虑返回时间
+                if( loginInfo.msgCode =="false" ){
+                    $(".login-form").find('.login-alert').length ? $(".login-form").find('.login-alert').html(loginInfo.msg).addClass('text-center') : $(".login-form").append('<div class="login-alert">' + loginInfo.msg + '</div>');
+                    if(loginInfo.errCodeNum=="true"){
+                        $("#errCode").show();
+                    }
+                    return false;
+                }else{
+                    top.location.href = loginInfo.indexUrl;
+                }
+
+            },
+            error:function(){
+
+            }
+
+        });
+    }
+
+    var swiper = new Swiper('.swiper-container', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        autoplay : 3000,
+        speed:2000,
+        effect: 'fade',
+        loop : true,
+        fade: {
+            crossFade: false,
+        }
+    });
+</script>
+</html>

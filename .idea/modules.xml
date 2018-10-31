@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin/admin.iml" filepath="$PROJECT_DIR$/admin/admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-framework/base-framework.iml" filepath="$PROJECT_DIR$/base-framework/base-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-framework/framework-common/framework-common.iml" filepath="$PROJECT_DIR$/base-framework/framework-common/framework-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myservletDemo/myservletDemo.iml" filepath="$PROJECT_DIR$/myservletDemo/myservletDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myspringmvc/myspringmvc.iml" filepath="$PROJECT_DIR$/myspringmvc/myspringmvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mystudymybatis/mystudymybatis.iml" filepath="$PROJECT_DIR$/mystudymybatis/mystudymybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mystudystep1/mystudystep1.iml" filepath="$PROJECT_DIR$/mystudystep1/mystudystep1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mystudystep2/mystudystep2.iml" filepath="$PROJECT_DIR$/mystudystep2/mystudystep2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ptpworkspace.iml" filepath="$PROJECT_DIR$/.idea/ptpworkspace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-user/sercice-user.iml" filepath="$PROJECT_DIR$/service-user/sercice-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssmstudy/ssmstudy.iml" filepath="$PROJECT_DIR$/ssmstudy/ssmstudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study-velocity/study-velocity.iml" filepath="$PROJECT_DIR$/study-velocity/study-velocity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-user/user-facade/user-facade.iml" filepath="$PROJECT_DIR$/service-user/user-facade/user-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-user/user-service/user-service.iml" filepath="$PROJECT_DIR$/service-user/user-service/user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-api/web-api.iml" filepath="$PROJECT_DIR$/web-api/web-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webspringboot/webspringboot.iml" filepath="$PROJECT_DIR$/webspringboot/webspringboot.iml" />
+    </modules>
+  </component>
+</project>

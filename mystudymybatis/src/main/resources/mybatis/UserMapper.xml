@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mystudymybatis.mapper.UserMapper" >
+    <!--开启二级缓存 Mybatis的二级缓存是指mapper映射文件。二级缓存的作用域是同一个namespace下的mapper映射文件内容，多个SqlSession共享。Mybatis需要手动设置启动二级缓存-->
+ <!--   <cache></cache>-->
+
+    <resultMap id="BaseResultMap" type="com.mystudymybatis.po.PUserInfo" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+        <result column="user_age" property="userAge" jdbcType="INTEGER" />
+        <result column="user_pwd" property="userPwd" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="insertUser" parameterType="com.mystudymybatis.po.PUserInfo" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into p_user_info(user_code ,user_name ,user_age ,user_pwd )
+        VALUES (#{userCode},#{userName},#{userAge},#{userPwd})
+    </insert>
+
+    <select id="findUserByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT  * FROM p_user_info WHERE  user_name LIKE '%${value}%'
+    </select>
+
+    <select id="findUserById" parameterType="int" resultType="com.mystudymybatis.po.PUserInfo">
+        SELECT id,user_code userCode,user_name userName,user_age userAge,user_pwd userPwd
+         FROM p_user_info where id=#{id}
+    </select>
+
+    <resultMap id="userAndOrderRstMap" type="com.mystudymybatis.po.PUserInfo">
+        <id column="id" property="id"></id>
+        <result column="user_name" property="userName" />
+        <result column="user_code" property="userCode" />
+        <result column="user_age" property="userAge" />
+        <result column="user_pwd" property="userPwd"  />
+         <!--映射嵌套对象 用户对订单信息 一对多-->
+        <collection property="pOrderlist" ofType="com.mystudymybatis.po.POrder" >
+            <!--主键映射id-->
+            <id column="oderid" property="id"/>
+            <result column="amount" property="amount"/>
+        </collection>
+    </resultMap>
+
+    <select id="findUserAndOrderRstMap" resultMap="userAndOrderRstMap">
+                select a.*,b.id oderid,b.amount
+                from p_user_info a LEFT JOIN p_order b
+                on a.id=b.user_id
+    </select>
+
+    <!--延迟加载-->
+    <!--查询订单关联用户信息使用reslutmap-->
+    <resultMap id="orderAndUserRstMap" type="com.mystudymybatis.po.OrderExt">
+        <id column="id" property="id"></id>
+        <result column="amount" property="amount"/>
+        <result column="user_Id" property="userId"/>
+        <association property="userInfo" javaType="com.mystudymybatis.po.PUserInfo" column="user_Id" select="com.mystudymybatis.mapper.UserMapper.findUserById">  </association>
+    </resultMap>
+    <select id="findOrdersAndUserRstMap" resultMap="orderAndUserRstMap">
+        select  b.*
+                from  p_order b
+    </select>
+
+    <!--可以是任意的SQL 代码-->
+    <sql id="queryuserhere">
+        <!--test 里面可以编写OGNL表达式-->
+        <if test="user !=null">
+            <if test="user.userName!=null and user.userName!=''">
+                AND user_name LIKE '%${user.userName}%'
+            </if>
+            <if test="user.userCode!=null and user.userCode!=''">
+                AND user_code = '#{user.userCode}'
+            </if>
+        </if>
+        <if test="idList!=null and idList.size>0">
+            <foreach collection="idList" item="id" open=" AND id IN (" close=" )" separator=",">
+                #{id}
+            </foreach>
+        </if>
+    </sql>
+
+    <!--综合查询-->
+    <select id="findUserList" parameterType="com.mystudymybatis.vo.UserQueryVo" resultMap="BaseResultMap">
+        SELECT * FROM p_user_info
+        <where>
+            <include refid="queryuserhere"/>
+        </where>
+    </select>
+    <!--分页查询之查询总数-->
+    <select id="findUserCount" parameterType="com.mystudymybatis.vo.UserQueryVo"  resultType="int">
+        SELECT count(0) FROM p_user_info
+        <where>
+            <include refid="queryuserhere"/>
+        </where>
+    </select>
+
+
+
+</mapper>

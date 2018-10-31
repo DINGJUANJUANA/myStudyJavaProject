@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+    <!-- spring可以自动去扫描base-pack下面的包或者子包下面的java文件，
+                  如果扫描到有Spring的相关注解的类，则把这些类注册为Spring的bean -->
+    <context:component-scan base-package="com.ptpstudy.APPController"/>
+    <!-- 配置Handle，映射"/hello"请求 -->
+    <!--<bean name="/hello" class="org.fkit.controller.HelloController"/>-->
+
+
+    <mvc:default-servlet-handler />
+
+    <!-- if you use annotation you must configure following setting -->
+    <mvc:annotation-driven />
+
+    <!-- 处理映射器将bean的name作为url进行查找，需要在配置Handle时指定name（即url） -->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+
+    <!-- SimpleControllerHandlerAdapter是一个处理器适配器，所有处理适配器都要实现 HandlerAdapter接口-->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+
+
+    <!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/page/app/"></property>
+        <property name="suffix" value=".html" />
+    </bean>
+
+</beans>

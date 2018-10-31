@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Welcome to ${title}</title>
+</head>
+<body>
+    #parse("header-menu.vm")
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>用户id</th>
+                    <th>用户名称</th>
+                    <th>用户性别</th>
+                    <th>用户年龄</th>
+                </tr>
+            </thead>
+            <tbody>
+                #if(${userInfoPOList})
+                    #foreach($item in ${userInfoPOList})
+                        <tr>
+                            <td>${item.id}</td>
+                            <td>${item.name}</td>
+                            <td>${item.sex}</td>
+                            <td>$dateTimeUtil.format(${item.age})</td>
+                        </tr>
+                    #end
+                #end
+            </tbody>
+        </table>
+
+
+
+
+    </div>
+    #parse("footer.vm")
+</body>
+</html>

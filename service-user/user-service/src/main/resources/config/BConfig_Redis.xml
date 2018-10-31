@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 运行模式：cluster | single -->
+    <property name="runMode" value="single" />
+    <node name="redis_master" type="master" for="redis">
+        <node-property name="redis_host" value="192.168.50.53" />
+        <node-property name="redis_port" value="6379" />
+        <node-property name="redis_userName" value="redis" />
+        <node-property name="redis_password" value="" />
+    </node>
+
+    <!-- redis pool specific -->
+    <!-- 最大连接数，默认为8 -->
+    <property name="redis_pool_maxTotal" value="2000" />
+    <!-- 最大分配的对象数 -->
+    <property name="redis_pool_maxActive" value="1024" />
+    <!-- 最大能够保持idel状态的对象数-->
+    <property name="redis_pool_maxIdle" value="200" />
+    <!-- 当池内没有返回对象时，最大等待时间-->
+    <property name="redis_pool_maxWait" value="1000" />
+    <!-- 最小空闲连接数, 默认0-->
+    <property name="redis_pool_minIdle" value="0" />
+    <!-- 当调用borrow Object方法时，是否进行有效性检查-->
+    <property name="redis_pool_testOnBorrow" value="true" />
+    <!-- 当调用return Object方法时，是否进行有效性检查 -->
+    <property name="redis_pool_testOnReturn" value="true" />
+    <!-- 逐出连接的最小空闲时间 默认1800000毫秒(30分钟)-->
+    <property name="redis_pool_minEvictableIdleTimeMillis" value="1800000" />
+
+
+</configuration>

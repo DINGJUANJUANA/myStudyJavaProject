@@ -1,0 +1,25 @@
+## Freemarker 配置
+## 文件配置路径
+spring.freemarker.template-loader-path=classpath:/templates/
+spring.freemarker.charset=utf-8
+spring.freemarker.cache=false
+spring.freemarker.expose-request-attributes=true
+spring.freemarker.expose-session-attributes=true
+spring.freemarker.expose-spring-macro-helpers=true
+spring.freemarker.suffix=.html
+
+
+#spring mvc
+#spring.mvc.view.prefix=/templates/
+#spring.mvc.view.suffix=.jsp
+
+
+
+
+## velocity的配置 VELOCITY TEMPLATES (VelocityAutoConfiguration)
+spring.velocity.charset=UTF-8
+spring.velocity.properties.input.encoding=UTF-8
+spring.velocity.properties.output.encoding=UTF-8
+spring.velocity.resourceLoaderPath=classpath:/templates/
+spring.velocity.suffix=.vm
+spring.velocity.toolbox-config-location=/spring/toolbox.xml

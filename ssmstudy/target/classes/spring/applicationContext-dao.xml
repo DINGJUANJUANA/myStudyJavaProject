@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 读取java配置文件，替换占位符数据 -->
+	<context:property-placeholder
+		location="classpath:db.properties" />
+
+	<!-- 配置DataSource数据源 -->
+	<!-- 常用的DataSource：Druid -->
+	<!-- 注意事项：destroy-method需要加上 -->
+	<bean id="dataSource"
+		  class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"
+				  value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/test" />
+		<property name="username" value="root" />
+		<property name="password" value="sa0077" />
+	</bean>
+	<!-- 配置SqlSessionFactory -->
+	<!-- SqlSessionFactory对象的创建，需要依赖于Mybatis的全局配置文件（数据源、别名、映射文件的读取） -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 注入dataSource -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- <property name="configLocation" value="dataSource"></property> -->
+		<!-- 映射的mapper。xml文件的地址 -->
+		<property name="mapperLocations" value="classpath*:mapper/*Mapper.xml" />
+		<!-- mybatis批量别名配置 -->
+		<property name="typeAliasesPackage" value="com.ssmstudy.po"></property>
+	</bean>
+
+	<!-- 批量Mapper代理对象的生成 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 指定需要生成代理的接口所在的包名 -->
+		<property name="basePackage" value="com.ssmstudy.mapper"></property>
+
+		<!--<property name="sqlSessionFactory" ref="sqlSessionFactory"></property> -->
+		<property name="sqlSessionFactoryBeanName"  value="sqlSessionFactory"></property>
+	</bean>
+</beans>

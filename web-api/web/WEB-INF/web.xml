@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+  http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1"  metadata-complete="false">
+
+    <display-name>web-api</display-name>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.html</url-pattern>
+        <url-pattern>*.css</url-pattern>
+        <url-pattern>*.rar</url-pattern>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.gif</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+        <url-pattern>*.png</url-pattern>
+        <url-pattern>*.ico</url-pattern>
+        <url-pattern>*.swf</url-pattern>
+        <url-pattern>*.wav</url-pattern>
+    </servlet-mapping>
+
+    <!-- UTF-8 encoding -->
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+
+    </filter>
+
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--配置过滤器-->
+    <filter>
+        <filter-name>loginFilter</filter-name>
+        <!-- tomcat容器初始化顺序监听器–>过滤器–>servlet，因此springMVCservlet初始化之前，过滤器就已经初始化过了，
+                    如果在过滤器中需要注入spring容器管理的bean是注入不进去的，因此需要在spring监听器中初始化需要注入的bean， 才能在过滤器中注入，而且过滤器的定义需要使用spring定义的DelegatingFilterProxy来实现 -->
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <!-- 如果要保留Filter原有的init，destroy方法的调用，还需要配置初始化参数targetFilterLifecycle为true，该参数默认为false -->
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <!--<filter-class>com.ptpweb.api.filter.LoginFilter</filter-class>-->
+
+        <init-param>
+            <param-name>enabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>includes</param-name>
+            <param-value>/user/,/account/</param-value>
+        </init-param>
+        <init-param>
+            <param-name>excludes</param-name>
+            <param-value>/login,/register,/checkMobile,/openAccountCallBack,/forgetPassWord,/getDesKey,/bindCardCallBack</param-value>
+        </init-param>
+    </filter>
+    <!--映射过滤器-->
+    <filter-mapping>
+        <filter-name>loginFilter</filter-name>
+        <!--“/*”表示拦截所有的请求 -->
+        <url-pattern>/abc/abc</url-pattern>
+    </filter-mapping>
+</web-app>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<toolbox>
+    <!-- velocity 自定义标签 -->
+    <tool>
+        <key>shiro</key>
+        <scope>application</scope>
+        <class>com.study.velocity.com.ssmstudy.controller.VelocityShiro</class>
+    </tool>
+
+    <tool>
+        <key>dateTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.DateTool</class>
+    </tool>
+    <tool>
+        <key>numberTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.NumberTool</class>
+        <parameter name="format" value="#0.0"/>
+    </tool>
+    <tool>
+        <key>mathTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.MathTool</class>
+    </tool>
+    <!-- 如果需要其他工具，可以从org.apache.velocity.tools.* 中引入，也可以自定义 -->
+    <tool>
+        <key>dateTimeUtil</key>
+        <scope>application</scope>
+        <class>com.study.velocity.utils.DateTimeUtils</class>
+    </tool>
+</toolbox>
+

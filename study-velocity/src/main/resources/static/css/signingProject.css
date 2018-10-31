@@ -1,0 +1,94 @@
+.orderInfo{
+    /*width: 1280px;*/
+    /*height: 260px;*/
+    margin-top: 10px;
+    margin-left: 45px;
+    position: absolute;
+    overflow: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.orders-3{
+    /*width: 410px;*/
+    height: 95px;
+    position: relative;
+    float: left;
+    background: white;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.orders-4{
+    width: 305px;
+    height: 95px;
+    position: relative;
+    float: left;
+    background: white;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.orderTable-3{
+    width: 350px;
+    height: 75px;
+    margin: 0 auto;
+    top: 10%;
+}
+.orderTable-4{
+    width: 305px;
+    height: 75px;
+    margin: 0 auto;
+    top: 10%;
+}
+.orderTable-3 tr{
+    height: 37.5px;
+    line-height: 37.5px;
+    font-size: 16px;
+}
+.orderTable-3 tr td{
+    width: 100px;
+}
+.orderTable-4 tr{
+    height: 37.5px;
+    line-height: 37.5px;
+    font-size: 16px;
+}
+.orderTable-4 tr td{
+    width: 100px;
+}
+
+.orderNum{
+    font-size: 22px;
+}
+.orderColor{
+    color: red;
+}
+.operateLog{
+    margin-top: 390px;
+    position: relative;
+}
+.logTitle{
+    padding-left: 17px;
+    /*border-left: 3px solid red;*/
+    padding-bottom: 20px;
+    border-bottom: 1px solid #c4bdbd;
+}
+.logTable{
+    width: 1200px;
+    height: 500px;
+    margin-left: 17px;
+    border: 1px solid red;
+}
+.but.butUpdate{
+    height: 40px;
+    background-color: #4492ff;
+    width: 70px;
+    float: right;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 35px;
+}
+.buttFont{
+    font-size: 20px;
+    color: white;
+    vertical-align: middle;
+    cursor: pointer;
+}

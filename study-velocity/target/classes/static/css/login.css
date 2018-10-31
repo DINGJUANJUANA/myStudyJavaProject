@@ -1,0 +1,416 @@
+html, body{
+	width:100%;
+	height:100%;
+}
+
+.nav-fluid{
+	position: fixed;
+	float: top;
+
+}
+.container-page{
+	background-color: #fff
+}
+.navbar-login {
+	background-color: rgba(2,97,170,.5);
+}
+/**  ~~~~~~~~ 登录界面 ~~~~~~~~  **/
+.page-content{
+	width: 100%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	z-index: 100;
+	top: 32px;
+}
+
+.page-login {
+	/*left: 0;*/
+	/*min-height: 553px;*/
+	overflow: hidden;
+	text-align: center;
+	width:100%;
+	left: 0;
+	vertical-align: middle;
+	display: table;
+}
+.page-content-middle{
+	width: 100%;
+	/*height: 550px;*/
+	vertical-align: middle;
+	display: table-cell;
+}
+/**  ~~~~~~~~ 登录界面主体  ~~~~~~~~ **/
+.login-body {
+	width: 800px;
+	/*height: 550px;*/
+	background-color: rgba(255,255,255,.1);
+	border-radius: 10px;
+	margin:0 auto;
+	padding: 40px 0;
+	border: 1px solid rgba(255,255,255,.4);
+	text-align: center;
+}
+.login-block {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+/** ----  平台LOGO  ---- **/
+.login-logo img {
+	height: 72px;
+}
+/** ----  平台名称  ---- **/
+.login-title {
+	margin: 20px 0 20px;
+	font-size: 18px;
+	text-align: center;
+	color : #333;
+	text-shadow: 0 1px 0 rgba(0,0,0,.2);
+}
+.login-title span {
+	font-size: 16px;
+	margin: 20px auto 5px auto;
+	color: #333;
+	font-weight: bold;
+}
+/** ----  登录表单  ---- **/
+.login-form {
+	position: relative;
+	padding-bottom: 10px;
+	width:400px;
+	margin:50px auto 0 auto;
+}
+.input-unit{
+	width: 320px;
+}
+.input-icon{
+	background: #3da8fb;
+	width: 40px;
+	height: 36px;
+	display: inline;
+	float: left;
+	border-radius: 5px 0 0 5px;
+	text-align: center;
+	line-height: 36px;
+	border: 1px solid #0079d7;
+	border-right: none;
+}
+.input-icon img{
+	width: 20px;
+	height: 20px;
+}
+.clear-input {
+	width: 280px;
+	display: inline;
+	padding: 0 10px;
+	height: 36px;
+	font-size: 12px;
+	line-height: 1;
+	color: #000;
+	background: rgba(255,255,255,1);
+	border: 1px solid #0079d7;
+	border-left: none;
+	border-radius: 0 5px 5px 0;
+	box-shadow: inset 0 2px 4px rgba(0,0,0,.1);
+	-webkit-transition: color .2s linear,border-color .3s linear;
+
+}
+
+.clear-input2 {
+	border-radius: 5px;
+	border: 1px solid #0079d7;
+	display: inline-block;
+	width: 320px;
+}
+
+.input-block{
+	width:300px;
+	display: inline-block;
+	float:left;
+}
+
+input::-webkit-input-placeholder {  color: #333;  }
+.clear-button {
+	margin: 0 auto !important;
+	width: 320px !important;
+	display: block;
+	height: 36px;
+	font-size: 14px;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0,0,0,.3);
+	-webkit-transition: color .2s linear,border-color .3s linear;
+
+	padding: 0 12px;
+	line-height: 28px;
+	background: #3da8fb;
+	/*border: 1px solid #0079d7;*/
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+	white-space: nowrap;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	text-shadow: 0 1px 0 rgba(165,165,165,.5);
+	text-align: center;
+
+}
+
+.clear-button:hover{
+	background-color: #0261aa;
+	color: #fff;
+}
+
+.login-form-group {
+	margin: auto 40px;
+	margin-bottom: 20px;
+	position: relative;
+}
+.login-form-group .alert {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	height: 36px;
+	margin-left: 10px;
+	font-size: 13px;
+	line-height: 36px;
+	/*width: 250px;*/
+	white-space:nowrap;
+	text-align: left;
+	color: #ffdb4b;
+	background-color: rgba(192,230,230,.1);
+	border: 0;
+	padding: 0 10px
+}
+.form-horizontal {
+	margin:0 auto;
+	text-align: left;
+}
+.form-group{
+	text-align: left;
+	width:600px;
+	height:40px;
+
+}
+.checkbox-block{
+	text-align: left;
+}
+.alert-warning{
+	float: left;
+	display: inline-block;
+	width: 150px;
+	margin-left: 40px;
+	font-size: 13px;
+	height: 36px;
+	border:0;
+	background: none;
+	color:#ffdb4b;
+}
+
+.form-block{
+	text-align: left;
+}
+/** 验证码 **/
+#code-media {
+	position: absolute;
+	right: 5px;
+	top: 50%;
+	margin-top: -15px;
+	width: 90px;
+	height: 30px;
+	object-fit: contain;
+}
+/** 登录错误提示 **/
+.login-alert {
+	height:0;
+	font-size: 13px;
+	padding-left: 40px;
+	width: 320px;
+	left: 0;
+	bottom: 0;
+	color: #ffdb4b;
+	text-align: left;
+}
+
+/** ----  登录按钮  ---- **/
+.page-login .btn-block {
+	width: 800px;
+	text-align: center;
+}
+
+/** ----  注册、忘记密码  ---- **/
+/** 注册 **/
+.login-register, .login-register:hover {
+	color: #e3b600;
+}
+.pull-content{
+	float: left;
+	margin-left: 10%;
+}
+/** 忘记密码 **/
+.login-forget, .login-forget:hover {
+	color: #00eaff;
+}
+
+.lastTips{
+	width: 320px;
+	margin: 0 auto;
+	color: #fff;
+}
+
+#passStrength{
+	display: inline-block;
+	margin-top: 15px;
+}
+
+
+/**  ~~~~~~~~ 注册界面 ~~~~~~~~  **/
+.page-register {
+	left: 0;
+	overflow-y: auto;
+}
+/**  ~~~~~~~~ 注册界面主体  ~~~~~~~~ **/
+.register-body {
+	margin: 50px auto 20px;
+	width: 100%;
+	padding-top: 50px
+}
+
+.middle-part{
+	text-align: center;
+	width:800px;
+	margin:0 auto;
+}
+.form-horizontal-login {
+	margin-top: 30px;
+	margin-bottom: 5px;
+	text-align: center;
+	width:100%;
+	padding-left: 155px;
+}
+.form-horizontal-login .control-label {
+	padding-right: 15px;
+	padding-left: 15px;
+	text-align: right;
+	font-size: 14px;
+	display: inline-block;
+	width: 100px;
+	margin : 0 auto;
+	color: #a0a0a0;
+}
+.control-label {
+	float:left;
+	line-height: 36px;
+}
+/** 获取验证码按钮 **/
+.btn-mark, .btn-mark:hover {
+	right:0;
+	font-size: 13px;
+	height:36px;
+	display: inline-block;
+	color: #fff;
+	background-color: #3da8fb;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	margin-left: 20px;
+	margin-right: -20px;
+	width:115px !important;
+}
+
+
+/**  ~~~~~~~~ 忘记密码界面 ~~~~~~~~  **/
+.page-forget {
+	left: 0;
+	overflow-y: auto;
+}
+/**  ~~~~~~~~ 忘记密码界面主体  ~~~~~~~~ **/
+.forget-body {
+	margin: 50px auto 20px;
+	width: 900px;
+}
+/** 步骤 **/
+.forget-step {
+	margin: 50px 0 70px;
+}
+.step-box {
+	color: #e3b600;
+	float: left;
+	position: relative;
+	padding-left: 200px;
+	width: 300px;
+	font-size: 14px;
+	box-sizing: border-box;
+	text-align: left;
+}
+.step-box:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 170px;
+	margin-top: -5px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #a7a7a7;
+}
+.step-box:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 164px;
+	margin-top: -11px;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	border: solid #a7a7a7 1px;
+}
+.step-box i {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top: -2px;
+	width: 155px;
+	height: 1px;
+	background-color: #a7a7a7;
+}
+.step-box.completed:before {
+	background-color: #4693ff;
+}
+.step-box.completed:after {
+	border-color: #4693ff;
+}
+.step-box.completed i {
+	background-color: #4693ff;
+}
+/** 修改密码成功提示 **/
+.finish-body {
+	margin-top: 50px;
+	text-align: center;
+}
+.finish-title {
+	font-size: 36px;
+	color: #505050;
+}
+.finish-tips {
+	margin-top: 30px;
+	font-size: 24px;
+}
+
+
+.swiper-container, .swiper-wrapper, .swiper-slide{
+	width:100%;
+	height:100%;
+}
+
+.swiper-slide{
+    background-size: cover;
+	background: #2f4160;
+	background-repeat: no-repeat;
+}
+
+.swiper-button-white{
+	opacity: 0.5;
+}

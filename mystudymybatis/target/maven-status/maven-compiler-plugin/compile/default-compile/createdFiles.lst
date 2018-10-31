@@ -1,0 +1,12 @@
+com\mystudymybatis\po\POrder.class
+com\mystudymybatis\mapper\PUserInfoMapper.class
+com\mystudymybatis\po\PUserInfo.class
+com\mystudymybatis\po\PUserInfoExample$GeneratedCriteria.class
+com\mystudymybatis\vo\UserQueryVo.class
+com\mystudymybatis\mapper\UserMapper.class
+com\mystudymybatis\po\PUserInfoExample$Criterion.class
+com\mystudymybatis\po\OrderExt.class
+com\mystudymybatis\serviceimpl\MybatisDemo.class
+com\mystudymybatis\controller\IndexController.class
+com\mystudymybatis\po\PUserInfoExample$Criteria.class
+com\mystudymybatis\po\PUserInfoExample.class
